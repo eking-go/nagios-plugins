@@ -13,7 +13,7 @@ GetOptions ('file=s' => \$file,
 
 if (defined($run_apt)) {
         $ENV{LC_ALL} = 'C';
-	open STDIN, "apt-get -q -s upgrade |" or die "UNKNOWN - apt-get upgrade : $!\n";
+	open STDIN, "apt-get update; apt-get -q -s upgrade |" or die "UNKNOWN - apt-get upgrade : $!\n";
 } elsif (defined($file)) {
 	open STDIN, "< $file" or die "UNKNOWN - $file : $!\n";
 }
